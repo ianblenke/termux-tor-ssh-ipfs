@@ -1,0 +1,6 @@
+HiddenServiceDir /data/data/com.termux/files/usr/var/lib/tor/ssh/
+HiddenServiceVersion 3
+HiddenServicePort 22 127.0.0.1:8022
+
+SafeLogging 0
+Log notice stdout
