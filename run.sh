@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/sh -ex
+#!/data/data/com.termux/files/usr/bin/sh -e
 
 # Optionally install SSH keys from a supplied list of GITHUB_USERS (or use arguments to this script to enumerate these)
 GITHUB_USERS=${GITHUB_USERS:-$@}
@@ -52,9 +52,9 @@ sv up tor
 sv up sshd
 sv up ipfs
 
-sleep 1
-
 if [ -f $HOME/../usr/var/lib/tor/ssh/hostname ]; then
   cat $HOME/../usr/var/lib/tor/ssh/hostname
 fi
+
+echo Now restart termux and make sure everything is happy.
 
