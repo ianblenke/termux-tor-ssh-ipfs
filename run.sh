@@ -33,6 +33,7 @@ if [ ! -d $HOME/termux-tor-ssh ]; then
 fi
 
 cd $HOME/termux-tor-ssh
+git pull
 rsync -SHPaxq .bash_profile $HOME/.bash_profile
 rsync -SHPaxq .sv/ $HOME/.sv
 rsync -SHPaxq usr/ $HOME/../usr/
