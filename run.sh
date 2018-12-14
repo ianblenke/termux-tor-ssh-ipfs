@@ -38,7 +38,7 @@ git pull
 rsync -SHPaxq .bash_profile $HOME/.bash_profile
 rsync -SHPaxq .sv/ $HOME/.sv
 rsync -SHPaxq usr/ $HOME/../usr/
-rsync -SHPaxq bin/ $HOME/../bin/
+rsync -SHPaxq bin/ $HOME/bin/
 
 export SVDIR=$HOME/.sv
 
