@@ -45,6 +45,8 @@ if [ ! -d $HOME/.ipfs ]; then
   ipfs init
 fi
 
+mkdir -p $HOME/../usr/var/lib/tor/ssh
+
 sv up tor
 sv up sshd
 sv up ipfs
