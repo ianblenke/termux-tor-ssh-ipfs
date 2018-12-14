@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/sh -ex
 
 # Optionally install SSH keys from a supplied list of GITHUB_USERS (or use arguments to this script to enumerate these)
-GITHUB_USERS=${GITHUB_USERS:-${$@:-ianblenke}}
+GITHUB_USERS=${GITHUB_USERS:-$@}
 
 # Install dependencies
 which bash > /dev/null 2>&1 || pkg install bash
