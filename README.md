@@ -1,4 +1,4 @@
-# termux-tor-ssh
+# termux-tor-ssh-ipfs
 
 This is an attempt at making something to easily purpose an android phone to be ssh reachable over a tor v3 hidden service, with a minimum of setup preparation.
 
