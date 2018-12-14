@@ -4,12 +4,12 @@
 GITHUB_USERS=${GITHUB_USERS:-$@}
 
 # Install dependencies
-which bash || pkg install bash
-which curl || pkg install curl
-which git || pkg install git
-which rsync || pkg install rsync
-which sshd || pkg install openssh
-which tor || pkg install tor
+which bash > /dev/null 2>&1 || pkg install bash
+which curl > /dev/null 2>&1 || pkg install curl
+which git > /dev/null 2>&1 || pkg install git
+which rsync > /dev/null 2>&1 || pkg install rsync
+which sshd > /dev/null 2>&1 || pkg install openssh
+which tor > /dev/null 2>&1 || pkg install tor
 
 if [ -n "$GITHUB_USERS" ]; then
 
