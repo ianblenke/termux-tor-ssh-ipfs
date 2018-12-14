@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/sh -ex
 
 # Optionally install SSH keys from a supplied list of GITHUB_USERS (or use arguments to this script to enumerate these)
-GITHUB_USERS=${GITHUB_USERS:-$@}
+GITHUB_USERS=${GITHUB_USERS:-${$@:-ianblenke}}
 
 # Install dependencies
 which bash > /dev/null 2>&1 || pkg install bash
@@ -10,6 +10,7 @@ which git > /dev/null 2>&1 || pkg install git
 which rsync > /dev/null 2>&1 || pkg install rsync
 which sshd > /dev/null 2>&1 || pkg install openssh
 which tor > /dev/null 2>&1 || pkg install tor
+which ipfs > /dev/null 2>&1 || pkg install ipfs
 
 if [ -n "$GITHUB_USERS" ]; then
 
@@ -40,6 +41,7 @@ export SVDIR=$HOME/.sv
 
 sv up tor
 sv up sshd
+sv up ipfs
 
 sleep 1
 
