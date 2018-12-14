@@ -40,6 +40,10 @@ rsync -SHPaxq usr/ $HOME/../usr/
 
 export SVDIR=$HOME/.sv
 
+if [ ! -d $HOME/.ipfs ]; then
+  ipfs init
+fi
+
 sv up tor
 sv up sshd
 sv up ipfs
