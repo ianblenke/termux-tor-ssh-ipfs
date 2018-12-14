@@ -48,13 +48,5 @@ fi
 
 mkdir -p $HOME/../usr/var/lib/tor/ssh
 
-sv up tor
-sv up sshd
-sv up ipfs
-
-if [ -f $HOME/../usr/var/lib/tor/ssh/hostname ]; then
-  cat $HOME/../usr/var/lib/tor/ssh/hostname
-fi
-
 echo Now restart termux and make sure everything is happy.
 
