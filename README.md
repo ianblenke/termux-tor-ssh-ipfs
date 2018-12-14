@@ -6,5 +6,5 @@ As a work-in-progress, this will change for a bit until I get it working the way
 
 ## Usage:
 
-    curl -sL https://raw.githubusercontent.com/ianblenke/termux-tor-ssh/master/run.sh | GITHUB_USERS=ianblenke sh -x
+    pkg install curl && curl -sL https://raw.githubusercontent.com/ianblenke/termux-tor-ssh/master/run.sh | GITHUB_USERS=ianblenke sh -x
 
