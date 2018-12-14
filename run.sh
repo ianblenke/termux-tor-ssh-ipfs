@@ -4,17 +4,18 @@
 GITHUB_USERS=${GITHUB_USERS:-$@}
 
 # Install dependencies
-which bash > /dev/null 2>&1 || pkg install bash
-which curl > /dev/null 2>&1 || pkg install curl
-which git > /dev/null 2>&1 || pkg install git
-which rsync > /dev/null 2>&1 || pkg install rsync
-which sshd > /dev/null 2>&1 || pkg install openssh
-which tor > /dev/null 2>&1 || pkg install tor
-which ipfs > /dev/null 2>&1 || pkg install ipfs
+which bash > /dev/null 2>&1 || yes | pkg install -y bash
+which curl > /dev/null 2>&1 || yes | pkg install -y curl
+which git > /dev/null 2>&1 || yes | pkg install -y git
+which rsync > /dev/null 2>&1 || yes | pkg install -y rsync
+which sshd > /dev/null 2>&1 || yes | pkg install -y openssh
+which tor > /dev/null 2>&1 || yes | pkg install -y tor
+which ipfs > /dev/null 2>&1 || yes | pkg install -y ipfs
 
 if [ -n "$GITHUB_USERS" ]; then
 
   # Add ssh keys from github user ianblenke
+  mkdir -p .ssh
   touch $HOME/.ssh/authorized_keys
   (
     cat $HOME/.ssh/authorized_keys
