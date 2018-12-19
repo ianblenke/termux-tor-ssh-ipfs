@@ -29,7 +29,7 @@ if [ -n "$GITHUB_USERS" ]; then
 
 fi
 
-if [ ! -d $HOME/termux-tor-ssh ]; then
+if [ ! -d "$HOME/termux-tor-ssh" ]; then
   git clone https://github.com/ianblenke/termux-tor-ssh $HOME/termux-tor-ssh
 fi
 
@@ -42,7 +42,7 @@ rsync -SHPaxq bin/ $HOME/bin/
 
 export SVDIR=$HOME/.sv
 
-if [ ! -d $HOME/.ipfs ]; then
+if [ ! -d "$HOME/.ipfs" ]; then
   ipfs init
 fi
 
