@@ -11,6 +11,9 @@ which rsync > /dev/null 2>&1 || yes | pkg install -y rsync
 which sshd > /dev/null 2>&1 || yes | pkg install -y openssh
 which tor > /dev/null 2>&1 || yes | pkg install -y tor
 which ipfs > /dev/null 2>&1 || yes | pkg install -y ipfs
+which tsocks > /dev/null 2>&1 || yes | pkg install -y tsocks
+which npm > /dev/null 2>&1 || yes | pkg install -y nodejs
+which ssb-server > /dev/null 2>&1 || yes | npm install --no-optional -g ssb-server
 
 if [ -n "$GITHUB_USERS" ]; then
 
@@ -47,6 +50,15 @@ if [ ! -d "$HOME/.ipfs" ]; then
 fi
 
 mkdir -p $HOME/../usr/var/lib/tor/ssh
+
+sv up tor
+sv up sshd
+sv up ipfs
+sv up ssb
+
+if [ -f $HOME/../usr/var/lib/tor/ssh/hostname ]; then
+  cat $HOME/../usr/var/lib/tor/ssh/hostname
+fi
 
 echo Now restart termux and make sure everything is happy.
 
