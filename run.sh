@@ -14,6 +14,7 @@ which ipfs > /dev/null 2>&1 || yes | pkg install -y ipfs
 which tsocks > /dev/null 2>&1 || yes | pkg install -y tsocks
 which npm > /dev/null 2>&1 || yes | pkg install -y nodejs
 which ssb-server > /dev/null 2>&1 || yes | npm install --no-optional -g ssb-server
+which cabal > /dev/null 2>&1 || yes | npm install --no-optional -g cabal
 
 if [ -n "$GITHUB_USERS" ]; then
 
