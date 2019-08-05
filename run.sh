@@ -13,7 +13,46 @@ which tor > /dev/null 2>&1 || yes | pkg install -y tor
 which ipfs > /dev/null 2>&1 || yes | pkg install -y ipfs
 which tsocks > /dev/null 2>&1 || yes | pkg install -y tsocks
 which npm > /dev/null 2>&1 || yes | pkg install -y nodejs
-which ssb-server > /dev/null 2>&1 || yes | npm install --no-optional -g ssb-server
+#which ssb-server > /dev/null 2>&1 || yes | npm install --no-optional -g ssb-server
+# Install ssb-server dependencies
+npm cache verify
+npm i npm@latest -g
+pkg install python2
+pkg install libtool
+pkg install autoconf
+pkg install automake
+pkg install build-essentials
+pkg install python-pip
+
+# Install 14.1.12 version of ssb-server so that plugins still function
+npm i ssb-server@14.1.2
+ssb-server start
+
+# Install essential ssb-server plugins
+sbot plugins.install ssb-private
+sbot plugins.install ssb-device-address
+sbot plugins.install ssb-identities
+sbot plugins.install ssb-peer-invites
+
+# Connect to celehner's hub to get ssb-npm-registry
+sbot gossip.connect ssb.celehner.com:8008~shs:5XaVcAJ5DklwuuIkjGz4lwm2rOnMHHovhNg7BFFnyJ8
+
+# Install ssb-npm-registry
+sbot plugins.install ssb-npm-registry --from 'http://localhost:8989/blobs/get/&2afFvk14JEObC047kYmBLioDgMfHe2Eg5/gndSjPQ1Q=.sha256';
+sbot plugins.enable ssb-npm-registry;
+
+# Restart ssb-server
+ssb-server restart;
+
+# Install ssb-npm tools
+npm install --registry=http://localhost:8043/ -g ssb-npm;
+
+# INSTALL GIT-SSB
+ssb-npm install --global git-ssb;
+
+# Subscribe to git-ssb polytope
+
+# Install cabal chat
 which cabal > /dev/null 2>&1 || yes | npm install --no-optional -g cabal
 
 if [ -n "$GITHUB_USERS" ]; then
